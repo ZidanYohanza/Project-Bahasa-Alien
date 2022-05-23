@@ -1,8 +1,8 @@
 org 0x100
-global start
+global mulai
 section .data
 
-start:
+mulai:
     mov ah, 1
     int 21h
     mov bl, al
@@ -12,35 +12,35 @@ start:
     mov cl, al
 
     cmp bl, bh
-    jge a
+    jge angka3
 
-b:
+angka1:
     cmp bh, cl
-    jge c
+    jge angka2
     mov ah, 2
     mov dl, cl
     int 21h
-    jmp exit
+    jmp keluar
 
-c:
+angka2:
     mov ah, 2
     mov dl, bh
     int 21h
-    jmp exit
+    jmp keluar
 
-a:
+angka3:
     cmp bl, cl
-    jge d
+    jge result
     mov ah, 2
     mov dl, cl
     int 21h
-    jmp exit
+    jmp keluar
 
-d:
+result:
     mov ah, 2
     mov dl, bl
     int 21h
 
-exit:
+keluar:
     mov ah, 4ch
     int 21h
